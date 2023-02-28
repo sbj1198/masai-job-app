@@ -13,14 +13,27 @@ export const postJobs = (payload) => (dispatch) => {
     });
 };
 
-export const getJobs = () => (dispatch) => {
-  dispatch({ type: types.GET_JOB_REQUEST });
-  return axios
-    .get("https://masaijobapp-xbow.onrender.com/jobs")
-    .then((res) => {
-      dispatch({ type: types.GET_JOB_SUCCESS, payload: res.data });
-    })
-    .catch((err) => {
-      dispatch({ type: types.GET_JOB_FAILURE, payload: err });
-    });
-};
+export const getJobs =
+  (filter = "") =>
+  (dispatch) => {
+    dispatch({ type: types.GET_JOB_REQUEST });
+    if (filter !== "") {
+      return axios
+        .get(`https://masaijobapp-xbow.onrender.com/jobs?role=${filter}`)
+        .then((res) => {
+          dispatch({ type: types.GET_JOB_SUCCESS, payload: res.data });
+        })
+        .catch((err) => {
+          dispatch({ type: types.GET_JOB_FAILURE, payload: err });
+        });
+    } else {
+      return axios
+        .get(`https://masaijobapp-xbow.onrender.com/jobs`)
+        .then((res) => {
+          dispatch({ type: types.GET_JOB_SUCCESS, payload: res.data });
+        })
+        .catch((err) => {
+          dispatch({ type: types.GET_JOB_FAILURE, payload: err });
+        });
+    }
+  };

@@ -20,18 +20,26 @@ export const JobCard = ({ job }) => {
         <Box w="45%">
           <Flex flexDirection="column">
             <Box>
-              <Text mb="20px">{job.company}</Text>
+              <Text mb="20px" fontWeight="bold" color="teal">
+                {job.company.charAt(0).toUpperCase() + job.company.slice(1)}
+              </Text>
             </Box>
             <Box>
               <Heading size="sm" mb="20px">
-                {job.position}
+                {job.position.charAt(0).toUpperCase() + job.position.slice(1)}
               </Heading>
             </Box>
             <Box>
-              <Flex>
-                <Text mr="20px">{job.postedAt}</Text>
-                <Text mr="20px">{job.contract}</Text>
-                <Text mr="20px">{job.location}</Text>
+              <Flex alignItems="center">
+                <Text mr="20px" color="gray" fontWeight="semi-bold">
+                  {job.postedAt}
+                </Text>
+                <Text mr="20px" color="gray" fontWeight="semi-bold">
+                  {job.contract.charAt(0).toUpperCase() + job.contract.slice(1)}
+                </Text>
+                <Text mr="20px" color="gray" fontWeight="semi-bold">
+                  {job.location.charAt(0).toUpperCase() + job.location.slice(1)}
+                </Text>
               </Flex>
             </Box>
           </Flex>
