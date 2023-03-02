@@ -16,7 +16,7 @@ export const JobListing = () => {
 
   return (
     <>
-      <Flex justifyContent="flex-end" pr="30px" pt="20px">
+      <Flex justifyContent="flex-end" pr="40px" pt="20px">
         <Filter />
       </Flex>
       <Box>

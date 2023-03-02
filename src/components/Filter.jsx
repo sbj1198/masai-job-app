@@ -30,6 +30,8 @@ export const Filter = () => {
           borderColor="teal"
           value={filter}
           onChange={handleChange}
+          flexBasis="13rem"
+          cursor="pointer"
         >
           <option value="frontend">Frontend</option>
           <option value="backend">Backend</option>
